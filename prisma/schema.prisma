@@ -11,3 +11,34 @@ generator client {
 datasource db {
   provider = "postgresql"
 }
+
+model User {
+  id String @id @default(cuid())
+  email String @unique
+  name String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  habits Habit[]
+}
+
+model Habit {
+  id String @id @default(cuid())
+  name String
+  description String?
+  color String
+  frequency String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  userId String
+  user User @relation(fields: [userId], references: [id])
+  habitRecords HabitRecord[]
+}
+
+model HabitRecord {
+  id String @id @default(cuid())
+  habitId String
+  date DateTime
+  createdAt DateTime @default(now())
+  habit Habit @relation(fields: [habitId], references: [id])
+  @@unique([habitId, date])
+}
