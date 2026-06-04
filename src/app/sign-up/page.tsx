@@ -24,7 +24,7 @@ export default function SignUpPage(){
         if (signUpError) {
             setError(signUpError.message ?? "Не вдалося зареєструватись")
         } else {
-            router.push("/");
+            router.push("/dashboard");
         }
     }
 

@@ -27,7 +27,7 @@ export default function SignInPage () {
         if (error) {
             setError(error.message ?? "Не вдалось увійти");
         } else {
-            router.push("/");
+            router.push("/dashboard");
         }
     }
 
