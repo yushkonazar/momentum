@@ -1,6 +1,7 @@
 import { auth } from "@/lib/auth";
 import { redirect } from "next/navigation";
 import { headers } from "next/headers";
+import SignOutButton from "@/components/SignOutButton";
 
 
 export default async function DashboardPage() {
@@ -16,6 +17,7 @@ export default async function DashboardPage() {
         <main>
             <h1>Вітаю, {session?.user.name}</h1>
             <p>{session?.user.email}</p> 
+            <SignOutButton />
         </main>
     )
 }
