@@ -20,12 +20,12 @@ export default function SignInPage () {
         setError("");
         setLoading(true);
         
-        const { error } = await authClient.signIn.email({ email, password });
+        const { error: signInError } = await authClient.signIn.email({ email, password });
 
         setLoading(false);
 
-        if (error) {
-            setError(error.message ?? "Не вдалось увійти");
+        if (signInError) {
+            setError(signInError.message ?? "Не вдалось увійти");
         } else {
             router.push("/dashboard");
         }
