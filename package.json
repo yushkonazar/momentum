@@ -8,8 +8,13 @@
     "start": "next start",
     "lint": "eslint"
   },
+  "overrides": {
+  "kysely": "0.28.x"
+  },
   "dependencies": {
+    "@prisma/adapter-pg": "^7.8.0",
     "@prisma/client": "^7.8.0",
+    "better-auth": "^1.6.13",
     "next": "16.2.6",
     "react": "19.2.4",
     "react-dom": "19.2.4"
