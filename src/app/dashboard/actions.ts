@@ -36,7 +36,7 @@ export async function deleteHabit(formData: FormData) {
     revalidatePath("/dashboard");
 }
 
-export async function editHabit(formData: FormData) {
+export async function updateHabit(formData: FormData) {
     const session = await requireSession();
 
     const id = formData.get("habitId") as string;

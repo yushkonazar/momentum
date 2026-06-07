@@ -1,6 +1,6 @@
 import { prisma } from "@/lib/prisma";
 import { requireSession } from "@/lib/session";
-import { editHabit } from "../../actions";
+import { updateHabit } from "../../actions";
 import { notFound } from "next/navigation";
 
 export default async function EditPage({
@@ -20,7 +20,7 @@ export default async function EditPage({
 
     return(
         <>
-            <form action={editHabit}>
+            <form action={updateHabit}>
                 <input type="hidden" name="habitId" value={habit.id}/>
                 <input 
                     type="text" 
